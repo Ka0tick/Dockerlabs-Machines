@@ -10,7 +10,7 @@ La exposición de información mediante FTP facilita la identificación del usua
 
 ##  Attack Chain
 
-***Nmap → FTP Anonymous → File Enumeration → User Disclosure → Web Enumeration → SSH Brute Force → SSH Access → Sudo/Vim Abuse → Root
+**Nmap → FTP Anonymous → File Enumeration → User Disclosure → Web Enumeration → SSH Brute Force → SSH Access → Sudo/Vim Abuse → Root**
 
 ## 1. Reconocimiento e Identificación del Servicio
 
