@@ -16,7 +16,7 @@ La exposición de información mediante FTP facilita la identificación del usua
 
 Con el contenedor de Dockerlabs desplegado en la IP `172.17.0.2`, realizamos una verificación de conectividad.
 
-![Resultado_ping_host](./images/ping_obsession.png)
+![Resultado_ping_host](./Images/ping_obsession.png)
 
 La respuesta del ping fue exitosa lo cual significa que se ha desplegado correctamente y se encuentra operativa.
 
