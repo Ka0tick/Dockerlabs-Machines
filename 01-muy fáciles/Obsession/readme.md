@@ -16,7 +16,7 @@ La exposición de información mediante FTP facilita la identificación del usua
 
 Con el contenedor de Dockerlabs desplegado en la IP `172.17.0.2`, realizamos una verificación de conectividad.
 
-![Resultado_ping_host](./images/ping-obsession.png)
+![Resultado_ping_host](./images/ping_obsession.png)
 
 La respuesta del ping fue exitosa lo cual significa que se ha desplegado correctamente y se encuentra operativa.
 
@@ -175,11 +175,11 @@ server-status           [Status: 403, Size: 275, Words: 20, Lines: 10, Duration:
 
 Ingresamos a la ip desde el navegador, para realizar web enumeration, visualizamos una pagina que se encuentra sin fallas explotables ni informacion de utilidad.
 
-![pagina](./images/pagina.png)
+![pagina](./Images/pagina.png)
 
 Procedemos a ingresar a **172.17.0.2/backup/** y encontramos el archivo backup.txt
 
-![pagina](./images/backup.png)
+![pagina](./Images/backup.png)
 
 Al ingresar al archivo nos da la siguiente pista: `Usuario para todos mis servicios: russoski (cambiar pronto!)`
 
