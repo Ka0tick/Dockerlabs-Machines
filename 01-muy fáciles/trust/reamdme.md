@@ -10,7 +10,7 @@ La máquina presenta una cadena de ataque basada principalmente en la enumeraci�
 
 **Nmap → Web Fuzzing → User Disclosure → SSH Brute Force → SSH Access → Sudo/Vim Abuse → Root**
 
-### 1 Identificacion de servicios y puertos abiertos.
+### 1. Identificacion de servicios y puertos abiertos.
 
 ```
 ┌──(mariano㉿Kaotic)-[~/Downloads/dockerlabs-machines/01-muy-faciles/trust]
