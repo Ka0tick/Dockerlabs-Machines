@@ -121,7 +121,7 @@ Finished
 ```
 Obtenemos el resultado secret.php, el cual al ingresar desde el navegador web es el siguiente:
 
-![paginasecreto](./images/sereto.png)
+![pagina-secreto](./images/paginasecreto.png)
 
 Deducimos que es la pista para el usuario del servicios SSH y procedemos a utilizar hydra.
 
