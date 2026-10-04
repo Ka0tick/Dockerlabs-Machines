@@ -4,7 +4,7 @@
 
 ## Descripcion 
 
-La máquina presenta una cadena de ataque basada principalmente en la enumeración de servicios, el descubrimiento de información mediante fuzzing web, el uso de credenciales débiles y una configuración insegura de sudo
+BreakMySSH es una máquina de dificultad sencilla enfocada en la enumeración y explotación de SSH. Presenta un escenario donde la identificación de usuarios y el uso de credenciales débiles permiten obtener acceso remoto al sistema y alcanzar privilegios root.
 
 ## Attack Chain
 
@@ -35,7 +35,7 @@ Verificamos que el unico servicio activo es el SSH, en el puerto 22, con una ver
 
 ## 2. Enumeracion de usuarios.
 
-Tenemos dos opciones explotar el CVE Debido a la version de OpenSSH 7.7 
+Tenemos dos opciones explotar el CVE debido a la version de OpenSSH 7.7 
 
 ```
 ┌──(mariano㉿Kaotic)-[~/Downloads/dockerlabs-machines/01-muy-faciles/breakmyssh]
@@ -120,8 +120,6 @@ root
 
 ```  
 Como vemos ingresamos al usuario root el cual tiene dicho permisos.
-
-# Conclusión
 
 # Conclusión
 
