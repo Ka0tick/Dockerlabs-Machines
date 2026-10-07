@@ -10,7 +10,7 @@ Laboratorio para practicar fuerza bruta SSH y escalada de privilegios mediante m
 
 **Nmap → Web Enumeration → User Disclosure → SSH Brute Force → SSH Access → User Switching → Sudo Misconfiguration → Root**
 
-### 1- Realizamos una busqueda para verificar puertos y servicios activos.
+### 1.Realizamos una busqueda para verificar puertos y servicios activos.
 
 ```
 ┌──(mariano㉿Kaotic)-[~/Downloads/dockerlabs-machines/01-muy-faciles/hedgehog]
