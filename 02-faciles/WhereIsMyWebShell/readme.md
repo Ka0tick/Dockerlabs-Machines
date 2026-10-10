@@ -193,31 +193,33 @@ contraseñaderoot123
 
 # Conclusión
 
-A partir del escaneo inicial con **Nmap**, se identificó un servidor **Apache** en el puerto `80`, que constituía el principal punto de entrada a la máquina.
+A partir del escaneo inicial con **Nmap**, se identificó un servidor **Apache 2.4.57** en el puerto `80`, que constituía el principal punto de entrada a la máquina.
 
-Al ingresar al sitio web, se encontró una pista que indicaba revisar el directorio `/temp`. A partir de esta información, se realizó un proceso de enumeración mediante **fuzzing**, utilizando el cual se descubrió el archivo `shell.php`.
+Al ingresar al sitio web, se encontró una pista en el pie de página que mencionaba un "secretito" guardado en el directorio `/tmp`. A partir de esta información, se realizó un proceso de enumeración mediante **fuzzing de directorios**, descubriendo el archivo `shell.php`, el cual respondía con un error 500, indicando que esperaba un parámetro no provisto.
 
-Posteriormente, se investigó el comportamiento de `shell.php` mediante consultas al parámetro `id`, comprobando que era posible ejecutar comandos del sistema operativo a través de solicitudes web. Esto permitió identificar una vulnerabilidad de **ejecución remota de comandos (RCE)**.
+Mediante un segundo fuzzing, esta vez orientado a **nombres de parámetros GET**, se identificó que `shell.php` esperaba un parámetro llamado `parameter`. Al inspeccionar el código fuente del archivo tras obtener acceso, se confirmó que la página ejecutaba directamente cualquier comando recibido a través de la función `shell_exec()`, sin ningún tipo de validación o sanitización — constituyendo así una vulnerabilidad de **ejecución remota de comandos (RCE)**.
 
-Para obtener una shell interactiva, se preparó una escucha con **Netcat** en la máquina atacante y se envió una petición desde el sistema objetivo para establecer una conexión inversa (*Reverse Shell*). De esta manera, se consiguió acceso a la máquina.
+Aprovechando esta vulnerabilidad, se retomó la pista inicial y se listó el contenido de `/tmp`, donde se encontró el archivo oculto `.secret.txt` conteniendo la contraseña del usuario `root` en texto plano.
 
-Finalmente, se retomó la pista encontrada al comienzo sobre el directorio `/temp`. Mediante una petición web realizada con `curl` y aprovechando la ejecución de comandos a través de PHP, se siguieron las indicaciones necesarias para realizar la escalada de privilegios hasta obtener acceso como **root**.
+Para obtener una shell interactiva, se preparó una escucha con **Netcat** en la máquina atacante y se envió, a través del propio RCE, un comando que estableció una conexión inversa (*Reverse Shell*) hacia el equipo atacante. De esta manera se consiguió una sesión interactiva como el usuario `www-data`.
 
-En conclusión, la máquina **WhereIsMyWebShell** demuestra cómo una enumeración web adecuada permite descubrir archivos sensibles y cómo una webshell vulnerable puede facilitar la ejecución remota de comandos, la obtención de acceso al sistema y, aprovechando las pistas y configuraciones presentes en la máquina, la escalada de privilegios.
+Finalmente, utilizando la contraseña obtenida previamente, se ejecutó `su root`, logrando así la escalada de privilegios y el acceso completo como **root**.
+
+En conclusión, la máquina **WhereIsMyWebShell** demuestra cómo una enumeración web adecuada permite descubrir archivos y funcionalidades sensibles expuestas por error, y cómo una webshell sin restricciones —combinada con credenciales expuestas en el sistema de archivos— puede facilitar la cadena completa de compromiso: desde el acceso inicial hasta la escalada total de privilegios.
 
 | Vulnerabilidad / Técnica | Impacto | Mitigación |
 |---|---|---|
-| **Archivo `shell.php` accesible** | Expone una funcionalidad potencialmente peligrosa desde el servidor web. | Eliminar las webshells y restringir el acceso a archivos sensibles. |
-| **Ejecución de comandos mediante el parámetro `id`** | Permite ejecutar comandos remotamente a través de solicitudes HTTP. | Evitar ejecutar comandos del sistema a partir de parámetros controlados por el usuario. |
-| **Conexión inversa mediante Netcat** | Permite obtener una shell interactiva en la máquina objetivo. | Corregir la vulnerabilidad inicial y restringir las conexiones salientes innecesarias. |
-| **Escalada de privilegios** | Permite pasar de un acceso limitado a privilegios de `root`. | Revisar permisos, configuraciones y mecanismos de ejecución privilegiada. |
+| **Archivo `shell.php` expuesto públicamente** | Expone una funcionalidad de ejecución de comandos accesible desde cualquier navegador sin autenticación. | Eliminar webshells y archivos de prueba antes de pasar a producción; restringir el acceso a rutas sensibles. |
+| **Ejecución de comandos mediante el parámetro `parameter` (`shell_exec`)** | Permite ejecutar comandos arbitrarios del sistema operativo a través de solicitudes HTTP (RCE). | No usar funciones como `shell_exec()`, `exec()` o `system()` sobre input de usuario sin sanitizar; aplicar listas blancas de comandos permitidos. |
+| **Contraseña de root en texto plano en `/tmp/.secret.txt`** | Permite escalar privilegios directamente a `root` sin necesidad de explotar fallas adicionales en el sistema. | No almacenar credenciales en texto plano en directorios accesibles; usar gestores de secretos o variables de entorno protegidas. |
+| **Conexión inversa mediante Netcat** | Permite obtener una shell interactiva y persistente en la máquina objetivo a partir del RCE inicial. | Corregir la vulnerabilidad de origen y restringir conexiones salientes no autorizadas mediante reglas de firewall. |
 
 ## Recomendaciones generales
 
-- Evitar exponer webshells y funcionalidades que permitan ejecutar comandos desde el navegador.
-- Revisar los directorios temporales y los archivos accesibles desde el servidor web.
-- Validar las entradas recibidas mediante parámetros HTTP.
-- Restringir los permisos de los procesos que ejecutan servicios web.
-- Auditar las configuraciones del sistema para prevenir escaladas de privilegios.
-
+- Evitar exponer webshells, scripts de prueba o funcionalidades de ejecución de comandos en entornos accesibles públicamente.
+- Validar y sanitizar cualquier entrada recibida mediante parámetros HTTP antes de utilizarla en el servidor.
+- No almacenar contraseñas ni credenciales sensibles en texto plano en directorios del sistema de archivos.
+- Restringir los permisos del usuario que ejecuta el servicio web (`www-data`), aplicando el principio de menor privilegio.
+- Auditar periódicamente los directorios temporales y los archivos accesibles desde el servidor web.
+- Implementar monitoreo de conexiones salientes para detectar intentos de reverse shell u otras conexiones no autorizadas.
 
