@@ -6,7 +6,7 @@
 
 Codificación en base64, acceso por SSH y escalada de privilegios mediante directorios ocultos y practicando criptografía.
 
-## Attack chain: 
+## Attack chain
 
 **Nmap → Web Enumeration → Credential Disclosure → Base64 Decoding → SSH Access → Hidden Directory Enumeration → User Pivot → Hidden File Enumeration → Password Discovery → Privilege Escalation → Root**
 
