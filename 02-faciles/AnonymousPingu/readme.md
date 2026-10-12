@@ -293,7 +293,7 @@ Escalamos a `root` teniendo acceso al uso de `chown` cambiamos los permisos del 
 
 Lectura del archivo passwd, significado de cada una de las columnas.
 
-![passwd](./images/passwd.jpeg)
+![Diagrama de /etc/passwd](https://images.squarespace-cdn.com/content/v1/5a01100f692ebe0459a1859f/1603347414982-SZ68WZFHL6N9LG7S5HMF/BSY+Security+Class+Diagrams+-+_etc_passwd+%28L%29.jpg)
 
 ```
 gladys@1375eb083c2d:/$ sudo -l
