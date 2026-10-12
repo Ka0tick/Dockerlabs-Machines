@@ -6,6 +6,8 @@
 
 Laboratorio para practicar la localización y subida de una webshell para ganar acceso, con escalada de privilegios mediante sudo.
 
+## Attack chain
+
 **Nmap → Web Enumeration → Directory Fuzzing → shell.php Discovery → Command Injection via id Parameter → Reverse Shell (Netcat) → Initial Access → Privilege Escalation via /temp Clue → Root Access**
 
 
