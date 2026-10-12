@@ -6,7 +6,7 @@
 
 Panel vulnerable de subida de archivos, donde se puede subir código malicioso y conseguir una ejecución remota de comandos en el servidor.
 
-## Attack chain: 
+## Attack chain
 
 **Nmap → Web Enumeration → Gobuster → Unrestricted File Upload → PHP Remote Code Execution → Reverse Shell → www-data Access → Sudo Misconfiguration → Root**
 
