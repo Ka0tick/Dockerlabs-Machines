@@ -151,7 +151,7 @@ ftp> ls
 ftp> 
 
 ```
-Continuamos con la conexion al servidor usando la [reverse shell.php](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php), nos ponemos en escucha en el puerto `4444`.
+Continuamos con la conexion al servidor usando la [reverse shell.php](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) de pentest monkey, nos ponemos en escucha en el puerto `4444`.
 
 ```
 ┌──(mariano㉿Kaotic)-[~/Downloads/dockerlabs-machines/02-faciles/anonymousPingu]
@@ -293,7 +293,7 @@ Escalamos a `root` teniendo acceso al uso de `chown` cambiamos los permisos del 
 
 Lectura del archivo passwd, significado de cada una de las columnas.
 
-![passwd](./images/passwd.png)
+![passwd](./images/passwd.jpeg)
 
 ```
 gladys@1375eb083c2d:/$ sudo -l
