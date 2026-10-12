@@ -384,7 +384,7 @@ ruben@12a5d3fc50ae:/var/www/html/wp-content/uploads$
 
 ```
 
-Ganamos el acceso y procedemos a establecer la terminal. El script usa [[ $num -eq 42 ]], y como -eq fuerza una evaluación aritmética sobre la entrada del usuario, bash ejecuta cualquier $(comando) que se inyecte dentro de esa cadena — y al correr el script como root vía sudo, ese comando también se ejecuta como root, permitiendo escalar privilegios.
+Ganamos el acceso y procedemos a establecer la terminal. El script usa `[[ $num -eq 42 ]]`, y como -eq fuerza una evaluación aritmética sobre la entrada del usuario, bash ejecuta cualquier $(comando) que se inyecte dentro de esa cadena — y al correr el script como root vía sudo, ese comando también se ejecuta como root, permitiendo escalar privilegios.
 
 ```
 ruben@12a5d3fc50ae:/var/www/html/wp-content/uploads$ sudo -l                                     
