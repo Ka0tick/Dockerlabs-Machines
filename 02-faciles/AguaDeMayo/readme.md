@@ -91,13 +91,13 @@ Finished
                                                                                                                           
 ```
 
-Ya que ` index`  se encuentra por defecto,  ingresamos a `http://172.17.0.2/images/` 
+Ya que `index`  se encuentra por defecto,  ingresamos a `http://172.17.0.2/images/` 
 
 ![images](./images/images.png)
 
-Encontamos una imagen la cual nos deja como usuario ` agua`  para el inicio de sesion de ` SSH`.
+Encontamos una imagen la cual nos deja como usuario `agua`  para el inicio de sesion de `SSH`.
 
-Procedemos con la conexion por SSH con el usuario  a` agua` y la contraseña `bebeaguaqueessano`
+Procedemos con la conexion por SSH con el usuario  a`agua` y la contraseña `bebeaguaqueessano`
 
 ## 3. Conexion y escalada de privilegios.
 
