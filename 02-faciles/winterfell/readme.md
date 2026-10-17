@@ -8,7 +8,7 @@ Laboratorio para practicar enumeración web y SMB, con escalada de privilegios m
 
 ## Attack chain
 
-**Nmap → Web Enumeration → Gobuster → Port Knocking → SSH Discovery → SSH Brute Force (Hydra) → SSH Access (toctoc) → Sudo Misconfiguration → Root**
+**Nmap → Web Enumeration → Gobuster → Episode Wordlist Discovery → SMB Enumeration (enum4linux) → User Discovery → Credential Brute Force (NetExec) → SMB Access (jon) → Base64 Decoding → SSH Access (jon) → Sudo Misconfiguration → Python Script Abuse → User Pivot (aria) → Sensitive File Disclosure → Credential Discovery (daenerys) → Reverse Shell via Sudo → Root**
 
 ## 1. Analisis y escaneo del objetivo.
 
@@ -109,8 +109,6 @@ fuegoyhielo
 El archivo lista los nombres de los episodios de la primera temporada de la serie, sin espacios — funcionando como una wordlist de contraseñas candidatas para usar más adelante.
 
 ## 3. Enumeración SMB
-
-Probamos con el usuario `toctoc` el cual encontramos su contraseña y procederemos a realizar la conexion `SSH` y la escalada de privilegios.
 
 ```text
                                                                                                            
