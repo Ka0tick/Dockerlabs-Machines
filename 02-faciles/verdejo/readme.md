@@ -8,8 +8,6 @@ Laboratorio para practicar las vulnerabilidades XSS y SSTI, con escalada de priv
 
 ## Attack chain
 
-## Attack chain:
-
 **Nmap → Web Enumeration → SSTI Detection (Jinja2) → Remote Code Execution (RCE) → Reverse Shell → verde Access → Sudo Misconfiguration (base64) → Root SSH Private Key Disclosure → Passphrase Cracking (John the Ripper) → SSH Access (root)**
 
 ## 1. Analisis y escaneo del objetivo.
