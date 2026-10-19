@@ -196,7 +196,7 @@ verde@4e95c4af10d2:~$
 
 
 ```
-El usuario `verd`e puede ejecutar `/usr/bin/base64` como `root` sin contraseña.
+El usuario `verde` puede ejecutar `/usr/bin/base64` como `root` sin contraseña.
 
 Lectura arbitraria de archivos como `root`
 
@@ -292,7 +292,7 @@ vEACJSQrQKz9mWnewtRP5pzZk=
 -----END OPENSSH PRIVATE KEY-----
 
 ```
-Se obtiene la clave privada completa. Está protegida por passphrase (`aes256-ctr `+ `bcrypt` en el header).
+Se obtiene la clave privada completa. Está protegida por passphrase (`aes256-ctr`+ `bcrypt` en el header).
 
 Se confirma además que corresponde a la clave autorizada:
 
