@@ -8,8 +8,6 @@ Laboratorio para practicar la explotación del CMS Nibbleblog para obtener una s
 
 ## Attack chain
 
-## Attack chain:
-
 **Nmap → Web Enumeration → Nibbleblog Discovery → Gobuster → Admin Panel Access → My Image Plugin Exploitation (CVE-2015-6967) → Remote Code Execution (RCE) → Reverse Shell → www-data Access → Sudo/PHP Abuse → chocolate Access → Writable Root Script Discovery → Script Hijacking → Bash SUID Abuse → Root**
 
 ## 1. Analisis y escaneo del objetivo.
