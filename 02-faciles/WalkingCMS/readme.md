@@ -10,7 +10,7 @@ Intrusión por fuerza bruta en el panel interno de wordpress y acceso al servido
 
 **Nmap → Web Enumeration → Gobuster → WordPress Discovery → WPScan → User Enumeration → XML-RPC Brute Force → WordPress Admin Access → Malicious Plugin Upload → Remote Code Execution (RCE) → Reverse Shell → www-data Access → SUID Enumeration → SUID Abuse (/usr/bin/env) → Root**
 
-### 1. Analisis y escaneo del objetivo.
+## 1. Analisis y escaneo del objetivo.
 
 Arrancamos con un escaneo completo de puertos con `nmap`:
 
